@@ -4,7 +4,7 @@ rdd1 = sc.textFile("lorum.txt")
 rdd2 = rdd1.filter(lambda x : 'lorum' in x.lower())
 rdd2.first() 
 
-# From object, collections for instance with sc.parallelize
+# From object, collections,.. using sc.parallelize
 rdd1 = sc.parallelize(list(range(10)))
 rdd2 = rdd1.map(lambda x : x**2)
 rdd3 = rdd2.collect()
