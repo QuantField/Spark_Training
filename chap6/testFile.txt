@@ -1,0 +1,8 @@
+This is a line
+
+another line
+
+This to test the code that detects the number of blank lines
+
+
+The answer should be 4
