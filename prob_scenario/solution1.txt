@@ -1,0 +1,22 @@
+s maria_dev I created the following directory in hdfs structure
+hdfs dfs -mkdir hdpcd
+this will create the following /user/maria_dev/hdpcd (hdpcd is created under the user/maria_dev automatically
+without specifying /user/maria_dev
+
+copy file to hdpcd
+hdfs dfs -put hadoopexam6.txt hdpcd/
+
+rdd1 = sc.textFile("hdfs:/user/maria_dev/hdpcd/hadoopexam6_nohead.txt")
+rdd2 = rdd1.map(lambda x : x.split(","))
+rdd3 = rdd2.map(lambda x : float(x[1])*(1 + float(x[2])/100)) # this just returns the values
+rdd4 = rdd2.map(lambda x :  (x[0],float(x[1])*(1 + float(x[2])/100))) # return pair RDD
+>>> rdd4.first()
+(u'Hadoop', 3334.9999999999995)
+
+
+In Scala:
+val rdd1 = sc.textFile("hdfs:/user/maria_dev/hdpcd/hadoopexam6_nohead.txt")
+val rdd2 = rdd1.map( x => x.split(","))
+val rdd3 = rdd2.map( x => (x(0), x(1).toDouble*(1.0+x(2).toDouble/100.0))  )
+scala> rdd3.first()
+res3: (String, Double) = (Hadoop,3334.9999999999995)

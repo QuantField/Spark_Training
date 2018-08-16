@@ -1,0 +1,7 @@
+CourseName,Price,Tax
+Hadoop,2900,15
+Spark,3500,14
+AWS,2700,13
+Azure,2800,11
+Java,3000,16
+HBase,3200,20
