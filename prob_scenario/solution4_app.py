@@ -15,5 +15,6 @@ rdd3 = sc.textFile("file:///home/maria_dev/kamel/Spark_Training/prob_scenario/ha
 rddAll = rdd1.union(rdd2).union(rdd3)
 
 # 3 - 
-print "There number of words is %i " % rddAll.count()
+rdd4 = rddAll.flatMap(lambda x : x.split(" "))
+print "There number of words is %i " % rdd4.count()
 

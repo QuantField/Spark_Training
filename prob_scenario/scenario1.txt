@@ -1,5 +1,0 @@
-You have been give the data in hadoopexam6.txt
-1- save the file to hdfs
-2- load this file in RDD
-3- Calculate the final price, using tax
-4- save data to hdfs
