@@ -1,0 +1,15 @@
+cenario 4 : you have been given the following contents in 3 different files
+
+hadoopexama4A.txt
+HadoopExam.com QuickTechie.com Training4Exam.com
+
+hadoopexama4B.txt 
+Hadoop Spark Scala Python Java Cloud Science
+
+hadoopexama4C.txt
+India USA UK Canada Australia
+
+
+1 - load all three files in three different RDD's
+2 - Concatenate all the data in a single RDD
+3 - Count all the words in all the three files.
