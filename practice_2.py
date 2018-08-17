@@ -36,7 +36,32 @@ df = rdd.map(lambda line : line.split(",")).map(lambda line : Row(      longitud
 									households = line[6],
 									median_income = line[7],
 									median_house_value = line[8],
-									ocean_proximity = line[9]))
-
+									ocean_proximity = line[9])).toDF()
+#toDF() convert the RDD to DataFrame
 
 # last bit not working properly need to do something.
+
+
+>>> df.show(4)
++----------+------------------+--------+---------+------------------+-------------+---------------+----------+--------------+-----------+
+|households|housing_median_age|latitude|longitude|median_house_value|median_income|ocean_proximity|population|total_bedrooms|total_rooms|
++----------+------------------+--------+---------+------------------+-------------+---------------+----------+--------------+-----------+
+|     126.0|              41.0|   37.88|  -122.23|          452600.0|       8.3252|       NEAR BAY|     322.0|         129.0|      880.0|
+|    1138.0|              21.0|   37.86|  -122.22|          358500.0|       8.3014|       NEAR BAY|    2401.0|        1106.0|     7099.0|
+|     177.0|              52.0|   37.85|  -122.24|          352100.0|       7.2574|       NEAR BAY|     496.0|         190.0|     1467.0|
+|     219.0|              52.0|   37.85|  -122.25|          341300.0|       5.6431|       NEAR BAY|     558.0|         235.0|     1274.0|
++----------+------------------+--------+---------+------------------+-------------+---------------+----------+--------------+-----------+
+only showing top 4 rows
+
+>>> df.head()
+Row(households=u'126.0', housing_median_age=u'41.0', latitude=u'37.88', longitude=u'-122.23', median_house_value=u'452600.0', median_income=u'8.3252', ocean_proximity=u'NEAR BAY', population=u'322.0', total_bedrooms=u'129.0', total_rooms=u'880.0')
+>>>
+
+>>> df.columns
+['households', 'housing_median_age', 'latitude', 'longitude', 'median_house_value', 'median_income', 'ocean_proximity', 'population', 'total_bedrooms', 'total_rooms']
+
+
+
+
+
+
