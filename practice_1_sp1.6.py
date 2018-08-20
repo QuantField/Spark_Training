@@ -9,14 +9,11 @@
 # ----- We can use the housing csv data as well (much simpler)
 #
 
-#---- This initialisation works for spark 2 not 1.6
-from pyspark.sql import SparkSession
+# this is specific to spark 1.6
+from pyspark.sql import SQLContext
+sqlContext = SQLContext(sc)
 
-spark = SparkSession.builder.appName("Simple Test")\
-        .config("spark.some.config.option","some-value")\
-        .getOrCreate()
-
-df = spark.read.csv("hdpcd/creditcard.csv")
+df = sqlContext.read.csv("/user/maria_dev/housing.csv")
 
 df.printSchema()
 
