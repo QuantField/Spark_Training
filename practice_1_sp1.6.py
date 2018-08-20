@@ -13,7 +13,19 @@
 from pyspark.sql import SQLContext
 sqlContext = SQLContext(sc)
 
-df = sqlContext.read.csv("/user/maria_dev/housing.csv")
+#
+#because I am using spark 1.6 I can't use the import below
+#df = sqlContext.read.csv("/user/maria_dev/housing.csv")
+#
+
+import csv
+rdd = sc.textFile("/user/maria_dev/housing.csv")
+rdd2 = rdd.mapPartitions(lambda x: csv.reader(x)) # can't use map here
+header = rdd2.first() 
+data   = rdd2.filter(lambda x : x != header)
+
+df = data.toDF(header) # all the values are taken as strings.
+
 
 df.printSchema()
 
